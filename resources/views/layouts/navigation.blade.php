@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('tasks')" :active="request()->routeIs('tasks')">
+                        {{ __('Tasks') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -76,6 +79,9 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('tasks')" :active="request()->routeIs('tasks')">
+                {{ __('Tasks') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -83,6 +89,9 @@
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+            </div>
+            <div class="px-4 mt-3">
+                <a href="{{route('profile')}}" class="font-medium text-base text-dark">Profile</a>
             </div>
 
             <div class="mt-3 space-y-1">
