@@ -14,11 +14,12 @@ use \App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/', [DashboardController::class,'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function (){
+    Route::view('/profile','main.profile')->name('profile');
     Route::get('/tasks', [TaskController::class,'index'])->name('tasks');
-    Route::view('/profile','profile')->name('profile');
+    Route::get('/create-task', [TaskController::class,'create'])->name('task.create');
 });
 
 require __DIR__.'/auth.php';
