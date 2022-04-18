@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\DashboardController;
 use \App\Http\Controllers\TaskController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +15,13 @@ use \App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::view('/profile', 'main.profile')->name('profile');
+    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
+    Route::get('/create-task', [TaskController::class, 'create'])->name('task.create');
 
-Route::middleware(['auth'])->group(function (){
-    Route::view('/profile','main.profile')->name('profile');
-    Route::get('/tasks', [TaskController::class,'index'])->name('tasks');
-    Route::get('/create-task', [TaskController::class,'create'])->name('task.create');
+    Route::post('task-store', [TaskController::class, 'store'])->name('task.store');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

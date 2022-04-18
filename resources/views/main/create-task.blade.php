@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form>
+            <form id="form_task">
                 <div class="form-group row px-5 mb-5">
                     <div class="col-lg-6">
                         <label for="task_name" class="col-form-label">Task Name</label>
@@ -38,30 +38,30 @@
                     <div class="col-lg-6">
                         <label for="priority" class="col-form-label">Priority : </label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="priority" id="priority">
+                            <input class="form-check-input" type="radio" name="priority" value="High">
                             <label class="form-check-label" for="priority">High</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="priority" id="priority">
+                            <input class="form-check-input" type="radio" name="priority" value="Medium">
                             <label class="form-check-label" for="priority">Medium</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="priority" id="priority">
+                            <input class="form-check-input" type="radio" name="priority" value="Low">
                             <label class="form-check-label" for="priority">Low</label>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <label for="status" class="col-form-label">Status : </label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="status">
+                            <input class="form-check-input" type="radio" name="status" value="Pending">
                             <label class="form-check-label" for="status">Pending</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="status">
+                            <input class="form-check-input" type="radio" name="status" value="Completed">
                             <label class="form-check-label" for="status">Completed</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="status">
+                            <input class="form-check-input" type="radio" name="status" value="Continue">
                             <label class="form-check-label" for="status">Continue</label>
                         </div>
                     </div>
@@ -74,8 +74,13 @@
                 </div>
             </form>
         </div>
+        <div class="card-footer d-flex justify-content-end">
+            <button class="btn btn-success me-5" id="btn_task_save" data-value="{{$user_id}}">Submit</button>
+        </div>
     </div>
 @endsection
 @section('js')
+
+    <script src={{"/js/task.js"}}></script>
 
 @endsection
