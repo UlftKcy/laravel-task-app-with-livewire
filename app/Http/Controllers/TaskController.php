@@ -76,7 +76,7 @@ class TaskController extends Controller
 
         } catch (\Exception $exception) {
             DB::rollBack();
-            dd($exception->getMessage());
+           /* dd($exception->getMessage());*/
             return response()->json(["status" => "error", "message" => "İşlem sırasında hata oluştu"]);
         }
     }
