@@ -33,6 +33,7 @@ $(function () {
                             confirmButton: "btn font-weight-bold btn-light"
                         },
                     });
+                    window.location.href = response.url;
                 } else {
                     Swal.fire({
                         icon: response.status,

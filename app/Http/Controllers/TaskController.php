@@ -67,12 +67,10 @@ class TaskController extends Controller
             $task->description = $request->task_description;
             $task->save();
 
-
+            $url = route('dashboard');
             DB::commit();
 
-            return response()->json(["status" => "success", "message" => "Görev başarıyla kaydedildi", "data" => [
-                "task" => $task
-            ]]);
+            return response()->json(["status" => "success", "message" => "Görev başarıyla kaydedildi", "url" => $url]);
 
         } catch (\Exception $exception) {
             DB::rollBack();
