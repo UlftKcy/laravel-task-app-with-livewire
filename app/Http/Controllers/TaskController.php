@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -59,8 +60,8 @@ class TaskController extends Controller
             $task = new Task();
             $task->task_name = $request->task_name;
             $task->uuid = Str::uuid();
-            $task->start_date = date('Y-m-d H:i:s' , strtotime($request->start_date));
-            $task->finish_date = date('Y-m-d H:i:s' , strtotime($request->finish_date));
+            $task->start_date = Carbon::parse($request->start_date)->format("Y-m-d H:i:s");
+            $task->finish_date = Carbon::parse($request->finish_date)->format("Y-m-d H:i:s");
             $task->priority = $request->priority;
             $task->status = $request->status;
             $task->user_id = $request->user_id;

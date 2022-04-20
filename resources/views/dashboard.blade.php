@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
 
-            @livewire('task')
+            @livewire('tasks')
 
         </div>
     </div>
